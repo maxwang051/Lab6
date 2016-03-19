@@ -15,10 +15,24 @@
 // this file also contains an private functions and private data
 
 // **************DAC_Init*********************
-// Initialize 4-bit DAC, called once 
+// Initialize 6-bit DAC, called once 
 // Input: none
 // Output: none
 void DAC_Init(void){
+	SYSCTL_RCGCGPIO_R |= 0x11;
+	int delay = SYSCTL_RCGCGPIO_R;
+	
+	// initialize port b
+	GPIO_PORTB_AMSEL_R &= ~0x3F;
+	GPIO_PORTB_PCTL_R &= ~0x00FFFFFF;
+	GPIO_PORTB_DIR_R |= 0x3F;
+	GPIO_PORTB_AFSEL_R &= ~0x3F;
+	GPIO_PORTB_DEN_R |= 0x3F;
+	
+	// initialize port e
+	GPIO_PORTE_DIR_R &= ~0x08;
+	GPIO_PORTE_AFSEL_R &= ~0x08;
+	GPIO_PORTE_DEN_R |= 0x08;
 }
 
 // **************DAC_Out*********************

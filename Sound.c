@@ -15,6 +15,9 @@
 #include "dac.h"
 #include "tm4c123gh6pm.h"
 
+int Index;
+const int SineWave[16] = {4,5,6,7,7,7,6,5,4,3,2,1,1,1,2,3};
+
 // **************Sound_Init*********************
 // Initialize Systick periodic interrupts
 // Called once, with sound initially off
