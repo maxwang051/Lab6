@@ -19,6 +19,13 @@
 // Input: none 
 // Output: none
 void Piano_Init(void){
+	SYSCTL_RCGCGPIO_R |= 0x10;
+	int delay = SYSCTL_RCGCGPIO_R;
+	
+	// initialize port e
+	GPIO_PORTE_DIR_R &= ~0x08;
+	GPIO_PORTE_AFSEL_R &= ~0x08;
+	GPIO_PORTE_DEN_R |= 0x08;
 }
 
 // **************Piano_In*********************

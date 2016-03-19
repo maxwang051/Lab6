@@ -19,7 +19,7 @@
 // Input: none
 // Output: none
 void DAC_Init(void){
-	SYSCTL_RCGCGPIO_R |= 0x11;
+	SYSCTL_RCGCGPIO_R |= 0x02;
 	int delay = SYSCTL_RCGCGPIO_R;
 	
 	// initialize port b
@@ -28,11 +28,6 @@ void DAC_Init(void){
 	GPIO_PORTB_DIR_R |= 0x3F;
 	GPIO_PORTB_AFSEL_R &= ~0x3F;
 	GPIO_PORTB_DEN_R |= 0x3F;
-	
-	// initialize port e
-	GPIO_PORTE_DIR_R &= ~0x08;
-	GPIO_PORTE_AFSEL_R &= ~0x08;
-	GPIO_PORTE_DEN_R |= 0x08;
 }
 
 // **************DAC_Out*********************
