@@ -34,5 +34,5 @@ void Piano_Init(void){
 // Output: 0 to 7 depending on keys
 // 0x01 is just Key0, 0x02 is just Key1, 0x04 is just Key2
 uint32_t Piano_In(void){
-  return 0; // replace this line with actual code
+  return GPIO_PORTE_DATA_R & 0x07; // CHANGE TO 0x0F IF USING 4 BUTTONS
 }
